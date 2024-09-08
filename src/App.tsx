@@ -1,5 +1,6 @@
 import '../src/index.css';
 import spotify from './lib/client';
+import { SongList } from './lib/components/SongList';
 
 export default function App() {
   spotify.test()
@@ -12,6 +13,7 @@ export default function App() {
         </header>
         <section>
           <h2 className="text-2xl font-semibold mb-5">Search for a song</h2>
+          <SongList isLoading={false}/>
         </section>
       </main>
     </div>
