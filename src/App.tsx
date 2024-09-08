@@ -1,6 +1,9 @@
 import '../src/index.css';
+import spotify from './lib/client';
 
 export default function App() {
+  spotify.test()
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-900 text-white">
       <main className="flex-1 p-8 mb-20">
