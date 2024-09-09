@@ -1,4 +1,5 @@
 import axios from "axios";
+import { PopularSongsResponse } from "../types/client";
 
 class SpotifyClient {
   token: string = '';
@@ -23,8 +24,12 @@ class SpotifyClient {
     return spotify;
   }
 
-  test() {
-    console.log(this.token)
+  async getPopularSongs (): Promise<PopularSongsResponse> {
+    const playListId = '37i9dQZF1DX9vYRBO9gjDe'
+    const response = await axios.get(`https://api.spotify.com/v1/playlists/${playListId}`, {
+      headers: { Authorization: 'Bearer ' + this.token }
+    });
+    return response.data
   }
 }
 
