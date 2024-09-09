@@ -5,9 +5,10 @@ import { item } from '../types/client'
 interface SongListProps {
   isLoading: boolean
   songs: item[]
+  onSongSelected: (song: item)=> void
 }
 
-export const SongList = ({isLoading, songs }: SongListProps) => {
+export const SongList = ({isLoading, songs, onSongSelected }: SongListProps) => {
   if (isLoading) {
     return (
       <div className="inset-0 flex justify-center items-center">
@@ -22,7 +23,7 @@ export const SongList = ({isLoading, songs }: SongListProps) => {
         songs.map((song)=>
         {
           return (
-            <div key={song.id} className="flex-none cursor-pointer">
+            <div onClick={()=>onSongSelected(song)} key={song.id} className="flex-none cursor-pointer">
               <img src={song.track.album.images[0].url} alt="thumbnail" className="mb-2 rounded"/>
               <h3 className="text-lg font-semibold">{song.track.album.name}</h3>
                 <p className="text-gray-400">{`By ${song.track.album.artists[0].name}`}</p>

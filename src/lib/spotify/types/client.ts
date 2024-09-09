@@ -12,6 +12,7 @@ export interface item{
   id: number,
   added_at: string,
   track: {
+    preview_url: string,
     album: {
       name: string
       images: image[]
